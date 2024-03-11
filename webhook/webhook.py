@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
+import requests
+
 
 app = Flask(__name__)
 
 # List of interest
 available_interests = [
-    {"title": "slow-traffic-forecast", "description": "This notification service informs about slow traffic in the city based on weather conditions, time of day, peak hours, accidents, and traffic density."},
+    {'title': 'slow-traffic-forecast', 'description': 'This notification service informs about slow traffic in the city based on weather conditions, time of day, peak hours, accidents, and traffic density.'},
 ]
 
 client_registrations = []
@@ -31,7 +33,7 @@ def register_client():
     interests = data.get('interests', [])
 
     # Verify that the interests provided by the customer are in the list of available interests
-    valid_interests = [interest for interest in interests if any(interest['title'] == available_interest['title'] for available_interest in available_interests)]
+    valid_interests = [interest for interest in interests if any(interest == available_interest['title'] for available_interest in available_interests)]
 
     # Register customer only with valid interests
     client_registrations.append({"endpoint": endpoint, "interests": valid_interests})
@@ -44,14 +46,24 @@ def register_client():
 def trigger_event():
     event_data = request.json
 
+    # Iterate over client registrations and send data to corresponding interests
     for registration in client_registrations:
-        endpoint = registration['endpoint']
-        interests = registration['interests']
+        endpoint = registration["endpoint"]
+        interests = registration["interests"]
 
         # Check if there is any interest corresponding to the event
-        if event_data['interest'] in [interest['title'] for interest in interests]:
+        if event_data["interest"] in interests:
 
-            print(f"Sending data to {endpoint} with interest {event_data['interest']}: {event_data}")
+            # POST to the client's endpoint
+            client_data = {"interest": event_data["interest"], "data": event_data["data"]}
+            print("Sending data to {} with interest {}: {}".format(endpoint, event_data['interest'], client_data))
+            response = requests.post(endpoint, json=client_data)
+
+            # Check if the client's response was successful
+            if response.status_code == 200:
+                print(f"Client response ({endpoint}): {response.text}")
+            else:
+                print(f"Failed to send data to {endpoint}. Status code: {response.status_code}")
 
     return 'Event processed and sent to registered endpoints.'
 
