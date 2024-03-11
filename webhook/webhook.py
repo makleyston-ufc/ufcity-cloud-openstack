@@ -1,73 +1,61 @@
-const express = require('express');
-const bodyParser = require('body-parser');
+from flask import Flask, request, jsonify
 
-const app = express();
-const port = 3000; // Escolha a porta desejada
+app = Flask(__name__)
 
-// Use o body-parser para processar o corpo das solicitações como JSON
-app.use(bodyParser.json());
+# List of interest
+available_interests = [
+    {"title": "slow-traffic-forecast", "description": "This notification service informs about slow traffic in the city based on weather conditions, time of day, peak hours, accidents, and traffic density."},
+]
 
-// Lista fixa de interesses com título e descrição
-const availableInterests = [
-  { title: 'Interesse 1', description: 'Descrição do Interesse 1' },
-  { title: 'Interesse 2', description: 'Descrição do Interesse 2' },
-  // Adicione mais interesses conforme necessário
-];
+client_registrations = []
 
-// Estrutura para armazenar os registros de clientes
-const clientRegistrations = [];
 
-// Rota para consultar a lista de interesses disponíveis
-app.get('/available-interests', (req, res) => {
-  res.status(200).json(availableInterests);
-});
+@app.route('/available-interests', methods=['GET'])
+def get_available_interests():
+    return jsonify(available_interests)
 
-// Rota para gerenciar a lista de interesses
-app.post('/manage-interests', (req, res) => {
-  // Implemente a lógica para manipular a lista de interesses (adicionar/remover)
 
-  // Exemplo: Adicionar um novo interesse à lista
-  const newInterest = req.body;
-  availableInterests.push(newInterest);
+@app.route('/manage-interests', methods=['POST'])
+def manage_interests():
 
-  res.status(200).json({ message: 'Interesse adicionado com sucesso', interest: newInterest });
-});
+    new_interest = request.json
+    available_interests.append(new_interest)
 
-// Rota para registrar um novo cliente e seus interesses
-app.post('/register', (req, res) => {
-  const { endpoint, interests } = req.body;
+    return jsonify({"message": "Interest added successfully", "interest": new_interest})
 
-  // Verifique se os interesses fornecidos pelo cliente estão na lista de interesses disponíveis
-  const validInterests = interests.filter((interest) =>
-    availableInterests.some((availableInterest) => availableInterest.title === interest)
-  );
 
-  // Registre o cliente apenas com interesses válidos
-  clientRegistrations.push({ endpoint, interests: validInterests });
-  console.log(`Cliente registrado: ${endpoint} - Interesses: ${validInterests}`);
-  res.status(200).send('Registro bem-sucedido!');
-});
+@app.route('/register', methods=['POST'])
+def register_client():
+    data = request.json
+    endpoint = data.get('endpoint')
+    interests = data.get('interests', [])
 
-// Rota para o evento a ser acionado
-app.post('/trigger-event', (req, res) => {
-  const eventData = req.body;
+    # Verify that the interests provided by the customer are in the list of available interests
+    valid_interests = [interest for interest in interests if any(interest['title'] == available_interest['title'] for available_interest in available_interests)]
 
-  // Itera sobre os registros de clientes e envia dados para os interesses correspondentes
-  clientRegistrations.forEach((registration) => {
-    const { endpoint, interests } = registration;
+    # Register customer only with valid interests
+    client_registrations.append({"endpoint": endpoint, "interests": valid_interests})
+    print(f"Registered client: {endpoint} - Interests: {valid_interests}")
 
-    // Verifique se há algum interesse correspondente ao evento
-    if (interests.includes(eventData.interest)) {
-      // Implemente aqui a lógica para enviar os dados para os endpoints registrados
-      console.log(`Enviando dados para ${endpoint} com interesse ${eventData.interest}:`, eventData);
-      // Você pode usar bibliotecas como axios para enviar requisições HTTP aos endpoints registrados
-    }
-  });
+    return 'Registration successful!'
 
-  res.status(200).send('Evento processado e enviado para endpoints registrados.');
-});
 
-// Inicie o servidor
-app.listen(port, () => {
-  console.log(`Servidor do Webhook está rodando em http://localhost:${port}`);
-});
+@app.route('/trigger-event', methods=['POST'])
+def trigger_event():
+    event_data = request.json
+
+    for registration in client_registrations:
+        endpoint = registration['endpoint']
+        interests = registration['interests']
+
+        # Check if there is any interest corresponding to the event
+        if event_data['interest'] in [interest['title'] for interest in interests]:
+
+            print(f"Sending data to {endpoint} with interest {event_data['interest']}: {event_data}")
+
+    return 'Event processed and sent to registered endpoints.'
+
+
+# Start the server
+if __name__ == '__main__':
+    app.run(debug=True, port=3000)
