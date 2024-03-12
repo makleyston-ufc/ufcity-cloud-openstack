@@ -1,10 +1,21 @@
 Metadata-Version: 2.1
 Name: UFCityMicroserviceLib
 Version: 0.1
-Summary: UNKNOWN
-Home-page: UNKNOWN
+Summary: Abstraction library to UFCity Microservices
+Home-page: https://makleyston-ufc.github.io/ufcity/
+Author: Danne Makleyston G. Pereira
+Author-email: makleyston@email.com
 License: UNKNOWN
+Keywords: mqtt library UFCityMicroserviceLib
 Platform: UNKNOWN
+Classifier: Development Status :: 3 - Alpha
+Classifier: Intended Audience :: Developers
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.6
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Description-Content-Type: text/markdown
 
-UNKNOWN
+This lib abstracts storage and communication functions between microservices and MongoDB and MQTT broker, respectively, in the context of UFCity.
 

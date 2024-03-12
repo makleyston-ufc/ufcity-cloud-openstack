@@ -1,8 +1,10 @@
 setup.py
-UFCityMicroserviceLib/UFCityMicroserviceLib.py
 UFCityMicroserviceLib/__init__.py
-UFCityMicroserviceLib/client.py
 UFCityMicroserviceLib.egg-info/PKG-INFO
 UFCityMicroserviceLib.egg-info/SOURCES.txt
 UFCityMicroserviceLib.egg-info/dependency_links.txt
+UFCityMicroserviceLib.egg-info/requires.txt
 UFCityMicroserviceLib.egg-info/top_level.txt
+UFCityMicroserviceLib/mqtt/__init__.py
+UFCityMicroserviceLib/mqtt/mqttClient.py
+UFCityMicroserviceLib/mqtt/mqttPublish.py
