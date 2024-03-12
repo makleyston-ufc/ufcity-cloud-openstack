@@ -1,32 +1,56 @@
-# from UFCityMicroserviceLib import MqttClient, MqttPublish, Observer
+from UFCityMicroserviceLib import MqttClient, MqttPublish, Observer
 import requests
 from joblib import load
-import sklearn
 
-print(sklearn.__version__)
 
-# url = ('https://github.com/makleyston-ufc/ufcity-cloud-openstack/raw/main/ufcity-ai-models/slow-traffic-forecast/slow'
-#        '-traffic-forecast-model.joblib')
-# response = requests.get(url)
-#
-# with open('slow-traffic-forecast-model.joblib', 'wb') as f:
-#     f.write(response.content)
+url = ('https://github.com/makleyston-ufc/ufcity-cloud-openstack/raw/main/ufcity-ai-models/slow-traffic-forecast/slow'
+       '-traffic-forecast-model.joblib')
+response = requests.get(url)
+with open('slow-traffic-forecast-model.joblib', 'wb') as f:
+    f.write(response.content)
 
+_configs = {"broker_address": "localhost", "port": 1883}
+_topics = ["resource_data/#"]
+interests = ['resource_data/weather', 'resource_data/day_of_week', 'resource_data/hour_of_day',
+             'resource_data/is_peak_hour', 'resource_data/random_event_occurred', 'resource_data/traffic_density']
+data_dict = {interest: None for interest in interests}
 model = load('slow-traffic-forecast-model.joblib')
-#
-#
-# class Obs(Observer):
-#
-#     def update(self, topic: str, message: str) -> None:
-#         print(f"Topic: {topic}, Message:  {message}")
-#
-#
-# obs = Obs()
-#
-# _configs = {"broker_address": "localhost", "port": 1883}
-# _topics = ["resource_data/#"]
-#
-# client = MqttClient.__init__(_configs)
-# client.attach(obs)
-# client.set_topics(_topics)
-# client.subscribe_to_topics()
+
+client = MqttClient.__init__(_configs)
+publish = MqttPublish.__init__(_configs)
+
+def process_data():
+
+    if all(data_dict.values()):
+        new_data = [
+            data_dict['resource_data/weather'],
+            data_dict['resource_data/day_of_week'],
+            data_dict['resource_data/hour_of_day'],
+            data_dict['resource_data/is_peak_hour'],
+            data_dict['resource_data/random_event_occurred'],
+            data_dict['resource_data/traffic_density']
+        ]
+        prediction = model.predict([new_data])
+        if prediction < 40:
+            send_notification(f"Possibility of slow traffic. Average speed: {prediction} k/h")
+        clear_data()
+    else:
+        print("Waiting for data from all sensors...")
+
+def send_notification(message):
+    publish.publish_single("/notification", message)
+    print("Message sent to /notification:", message)
+
+def clear_data():
+    for interest in interests:
+        data_dict[interest] = None
+
+class Obs(Observer):
+    def update(self, topic: str, message: str) -> None:
+        # print(f"Topic: {topic}, Message:  {message}")
+        data_dict[topic] = message
+        process_data()
+
+client.attach(Obs())
+client.set_topics(_topics)
+client.subscribe_to_topics()
