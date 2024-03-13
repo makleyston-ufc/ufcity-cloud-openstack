@@ -1,7 +1,7 @@
 from UFCityMicroserviceLib import MqttClient, MqttPublish, Observer
 import requests
 from joblib import load
-
+import pandas as pd
 
 url = ('https://github.com/makleyston-ufc/ufcity-cloud-openstack/raw/main/ufcity-ai-models/slow-traffic-forecast/slow'
        '-traffic-forecast-model.joblib')
@@ -16,26 +16,29 @@ interests = ['resource_data/weather', 'resource_data/day_of_week', 'resource_dat
 data_dict = {interest: None for interest in interests}
 model = load('slow-traffic-forecast-model.joblib')
 
-client = MqttClient.__init__(_configs)
-publish = MqttPublish.__init__(_configs)
+client = MqttClient(_configs)
+publish = MqttPublish(_configs)
 
 def process_data():
 
     if all(data_dict.values()):
-        new_data = [
-            data_dict['resource_data/weather'],
-            data_dict['resource_data/day_of_week'],
-            data_dict['resource_data/hour_of_day'],
-            data_dict['resource_data/is_peak_hour'],
-            data_dict['resource_data/random_event_occurred'],
-            data_dict['resource_data/traffic_density']
-        ]
-        prediction = model.predict([new_data])
-        if prediction < 40:
+        new_data = {
+            'Weather': [int(data_dict['resource_data/weather'][2:-1])],
+            'Day Of Week': [int(data_dict['resource_data/day_of_week'][2:-1])],
+            'Hour Of Day': [int(data_dict['resource_data/hour_of_day'][2:-1])],
+            'Is Peak Hour': [int(data_dict['resource_data/is_peak_hour'][2:-1])],
+            'Random Event Occurred': [int(data_dict['resource_data/random_event_occurred'][2:-1])],
+            'Traffic Density': [float(data_dict['resource_data/traffic_density'][2:-1])]
+        }
+
+        new_df = pd.DataFrame(new_data)
+        prediction = model.predict(new_df)
+        print(prediction)
+        if prediction < 50:
             send_notification(f"Possibility of slow traffic. Average speed: {prediction} k/h")
-        clear_data()
-    else:
-        print("Waiting for data from all sensors...")
+            clear_data()
+        else:
+            print("Waiting for data from all sensors...")
 
 def send_notification(message):
     publish.publish_single("/notification", message)
@@ -47,7 +50,7 @@ def clear_data():
 
 class Obs(Observer):
     def update(self, topic: str, message: str) -> None:
-        # print(f"Topic: {topic}, Message:  {message}")
+        print(f"Topic: {topic}, Message:  {message}")
         data_dict[topic] = message
         process_data()
 
