@@ -26,6 +26,29 @@
 
 <a href="https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/slow-traffic-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 
+
+
+## [Pollution trend analysis](https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/pollution-trend-analysis)
+**Dataset:** [US Air Pollution](https://www.kaggle.com/datasets/mexwell/us-air-pollution)
+
+**Goal:** Identify trends about air pollution.
+
+**Method used:** Moving average.
+
+**Tool used:** ETS, ARIMA, and SARIMA.
+
+**Result:**  
+
+<div style="display: flex; flex-direction: row;">
+  <img src="./pollution-trend-analysis/images/O3-chart.png" alt="UFCity" width="300" height="200" style="margin-right: 10px;">
+  <img src="./pollution-trend-analysis/images/SO2-chart.png" alt="UFCity" width="300" height="200" style="margin-right: 10px;">
+  <img src="./pollution-trend-analysis/images/NO2-chart.png" alt="UFCity" width="300" height="200" style="margin-right: 10px;">
+  <img src="./pollution-trend-analysis/images/CO-chart.png" alt="UFCity" width="300" height="200">
+</div>
+
+<a href="https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/pollution-trend-analysis"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
+
+
 ## [Weather forecast](https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/weather-forecast)
 **Dataset:** [CityPulse](http://iot.ee.surrey.ac.uk:8080/datasets.html#weather)
 
