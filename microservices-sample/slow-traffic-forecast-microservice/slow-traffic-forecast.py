@@ -23,12 +23,12 @@ def process_data():
 
     if all(data_dict.values()):
         new_data = {
-            'Weather': [int(data_dict['resource_data/weather'][2:-1])],
-            'Day Of Week': [int(data_dict['resource_data/day_of_week'][2:-1])],
-            'Hour Of Day': [int(data_dict['resource_data/hour_of_day'][2:-1])],
-            'Is Peak Hour': [int(data_dict['resource_data/is_peak_hour'][2:-1])],
-            'Random Event Occurred': [int(data_dict['resource_data/random_event_occurred'][2:-1])],
-            'Traffic Density': [float(data_dict['resource_data/traffic_density'][2:-1])]
+            'Weather': [int(data_dict['resource_data/weather'])],
+            'Day Of Week': [int(data_dict['resource_data/day_of_week'])],
+            'Hour Of Day': [int(data_dict['resource_data/hour_of_day'])],
+            'Is Peak Hour': [int(data_dict['resource_data/is_peak_hour'])],
+            'Random Event Occurred': [int(data_dict['resource_data/random_event_occurred'])],
+            'Traffic Density': [float(data_dict['resource_data/traffic_density'])]
         }
 
         new_df = pd.DataFrame(new_data)

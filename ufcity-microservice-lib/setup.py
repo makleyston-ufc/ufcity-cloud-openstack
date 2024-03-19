@@ -3,9 +3,10 @@ from setuptools import setup
 setup(
     name='UFCityMicroserviceLib',
     version='0.1',
-    packages=['UFCityMicroserviceLib', 'UFCityMicroserviceLib.mqtt'],
+    packages=['UFCityMicroserviceLib', 'UFCityMicroserviceLib.mqtt', 'UFCityMicroserviceLib.storage'],
     install_requires=[
         'paho-mqtt>=2.0.0',
+        'pymongo'
     ],
     author='Danne Makleyston G. Pereira',
     author_email='makleyston@email.com',

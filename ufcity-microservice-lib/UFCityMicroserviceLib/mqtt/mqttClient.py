@@ -30,7 +30,7 @@ class MqttClient:
 
     def notify(self, topic: str, message: str) -> None:
         for observer in self._observers:
-            observer.update(topic, message)
+            observer.update(topic, message[2:-1])
 
     def on_message(self, client, userdata, message):
         print(f"Received payload: {str(message.payload)} in topic {message.topic}")

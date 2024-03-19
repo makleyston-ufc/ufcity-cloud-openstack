@@ -8,3 +8,5 @@ UFCityMicroserviceLib.egg-info/top_level.txt
 UFCityMicroserviceLib/mqtt/__init__.py
 UFCityMicroserviceLib/mqtt/mqttClient.py
 UFCityMicroserviceLib/mqtt/mqttPublish.py
+UFCityMicroserviceLib/storage/__init__.py
+UFCityMicroserviceLib/storage/mongoDB.py
