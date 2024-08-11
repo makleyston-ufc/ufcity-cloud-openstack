@@ -1,3 +1,5 @@
+[TOC]
+
 <div class="view">
 <img src="https://makleyston-ufc.github.io/ufcity/assets/img/ufcity-logo.png" alt="UFCity" width="200"/>
 <p><b>Building smart cities smartly.</b></p>
@@ -8,6 +10,24 @@
 
   <a href="https://github.com/makleyston-ufc/ufcity-ai-models"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 </div>
+
+
+## [Bus delay forecast](https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/bus-daley-forecast)
+**Dataset:** [Toronto Bus Delay 2022](https://www.kaggle.com/datasets/reihanenamdari/toronto-bus-delay-2022)
+
+**Goal:** Identify bus delay based on 'Route', 'Time', 'Date', 'Location', 'Incident', 'Min Gap', 'Direction', 'Vehicle', 'DayOfWeek', and 'IsWeekend'.
+
+**Method used:** Regression based on decision trees.
+
+**Tool used:** Random Forest Regressor.
+
+**Result:**  
+- R2 Score: 0.892847963921944
+
+<img src="./bus-delay-forecast/images/chart.png" alt="UFCity" width="600" height="400"/>
+
+<a href="https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/bus-delay-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
+
 
 ## [Slow traffic forecast](https://github.com/makleyston-ufc/ufcity-ai-models/tree/main/slow-traffic-forecast)
 **Dataset:** [Urban traffic density in cities](https://www.kaggle.com/datasets/tanishqdublish/urban-traffic-density-in-cities?resource=download)
