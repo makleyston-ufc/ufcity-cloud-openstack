@@ -3,7 +3,7 @@ import requests
 from joblib import load
 import pandas as pd
 
-url = ('https://github.com/makleyston-ufc/ufcity-cloud-computing/raw/main/ufcity-ai-models-samples/toronto-bus-delay-forecast/toronto-bus-demand-forecast-model.joblib')
+url = ('https://github.com/makleyston-ufc/ufcity-cloud-computing/raw/main/samples/ufcity-ai-models-samples/toronto-bus-delay-forecast/toronto-bus-demand-forecast-model.joblib')
 response = requests.get(url)
 with open('toronto-bus-demand-forecast-model.joblib', 'wb') as f:
     f.write(response.content)

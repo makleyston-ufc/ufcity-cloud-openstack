@@ -8,14 +8,15 @@
 </div>
 <div class="view">
   <a href="https://makleyston-ufc.github.io/ufcity/"> <img src="https://img.shields.io/badge/UFCity_webpage-0076D6?style=for-the-badge&logo=internetexplorer&logoColor=white"> </a>
-  <a href="https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/ufcity-ai-models-samples"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
+  <a href="https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 </div>
 
 
 
 
 
-## [Bus delay forecast](https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/toronto-bus-delay-forecast)
+
+## [Bus delay forecast](https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/toronto-bus-delay-forecast)
 **Dataset:** [Toronto Bus Delay 2022](https://www.kaggle.com/datasets/reihanenamdari/toronto-bus-delay-2022)
 
 **Goal:** Identify bus delay based on 'Route', 'Time', 'Date', 'Location', 'Incident', 'Min Gap', 'Direction', 'Vehicle', 'DayOfWeek', and 'IsWeekend'.
@@ -30,10 +31,10 @@
 
 <img src="./toronto-bus-delay-forecast/images/chart.png" alt="UFCity" width="600" height="400"/>
 
-<a href="https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/toronto-bus-delay-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
+<a href="https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/toronto-bus-delay-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 
 
-## [Slow traffic forecast](https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/slow-traffic-forecast)
+## [Slow traffic forecast](https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/slow-traffic-forecast)
 **Dataset:** [Urban traffic density in cities](https://www.kaggle.com/datasets/tanishqdublish/urban-traffic-density-in-cities?resource=download)
 
 **Goal:** Identify slowdowns in the city based on weather conditions, time of day, peak hours, accidents, and traffic density.
@@ -49,11 +50,11 @@
 
 <img src="./slow-traffic-forecast/images/chart.png" alt="UFCity" width="600" height="400"/>
 
-<a href="https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/slow-traffic-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
+<a href="https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/slow-traffic-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 
 
 
-## [Pollution trend analysis](https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/pollution-trend-analysis)
+## [Pollution trend analysis](https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/pollution-trend-analysis)
 **Dataset:** [US Air Pollution](https://www.kaggle.com/datasets/mexwell/us-air-pollution)
 
 **Goal:** Identify trends about air pollution.
@@ -70,11 +71,10 @@
   <img src="./pollution-trend-analysis/images/CO2-chart.png" alt="UFCity" width="300" height="200" style="margin-right: 10px;">
   <img src="./pollution-trend-analysis/images/CO-chart.png" alt="UFCity" width="300" height="200">
 </div>
+<a href="https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/pollution-trend-analysis"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 
-<a href="https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/pollution-trend-analysis"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
 
-
-## [Weather forecast](https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/weather-forecast)
+## [Weather forecast](https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/weather-forecast)
 **Dataset:** [CityPulse](http://iot.ee.surrey.ac.uk:8080/datasets.html#weather)
 
 **Goal:** Predict series trends based on climate data, such as pressure, humidity, temperature, wind direction, and speed sensors.
@@ -99,5 +99,4 @@
 </div>
 
 
-
-<a href="https://github.com/makleyston-ufc/ufcity-cloud/tree/main/ufcity-ai-models-samples/weather-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>
+<a href="https://github.com/makleyston-ufc/ufcity-cloud-computing/tree/main/samples/ufcity-ai-models-samples/weather-forecast"> <img src="https://img.shields.io/badge/View_on_GitHub-181717?style=for-the-badge&logo=github&logoColor=white"> </a>

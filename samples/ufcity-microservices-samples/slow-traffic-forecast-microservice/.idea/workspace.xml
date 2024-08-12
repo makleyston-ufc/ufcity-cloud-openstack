@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="579280a6-2479-4ea9-beef-93ef50fe30b3" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../bus-delay-forecast-microservice/bus-delay-forecast.py" beforeDir="false" afterPath="$PROJECT_DIR$/../bus-delay-forecast-microservice/bus-delay-forecast.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/slow-traffic-forecast.py" beforeDir="false" afterPath="$PROJECT_DIR$/slow-traffic-forecast.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../../../.gitignore" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,7 +31,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../.." />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 6
@@ -50,7 +48,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "/home/makleyston/Documentos/doutorado/project/implements/ufcity-cloud-computing/microservices-sample/slow-traffic-forecast-microservice",
+    "last_opened_file_path": "/home/makleyston/Documentos/doutorado/project/implements/ufcity-cloud-computing/samples/ufcity-microservices-samples/slow-traffic-forecast-microservice",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -86,6 +84,7 @@
       <workItem from="1710818731647" duration="2915000" />
       <workItem from="1710882176472" duration="730000" />
       <workItem from="1723489250618" duration="27000" />
+      <workItem from="1723501301525" duration="23000" />
     </task>
     <servers />
   </component>
