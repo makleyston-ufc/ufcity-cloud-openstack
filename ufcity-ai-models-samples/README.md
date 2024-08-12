@@ -1,7 +1,3 @@
----
-title: "UFCity AI models samples"
----
-
 <div class="view">
 <img src="https://makleyston-ufc.github.io/ufcity/assets/img/ufcity-logo.png" alt="UFCity" width="200"/>
 <p><b>Building smart cities smartly.</b></p>
