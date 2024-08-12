@@ -22,7 +22,29 @@ The ```local.conf``` file used in this prototype is available in the [project re
 fetch('https://raw.githubusercontent.com/makleyston-ufc/ufcity-cloud-computing/main/openstack/local.conf')
   .then(response => response.text())
   .then(data => {
-    document.getElementById('local-conf-content').textContent = data;
+    // Cria um elemento pre para preservar a formatação
+    const pre = document.createElement('pre');
+    pre.style.backgroundColor = '#f4f4f4';
+    pre.style.border = '1px solid #ddd';
+    pre.style.borderRadius = '5px';
+    pre.style.padding = '10px';
+    pre.style.overflowX = 'auto';
+    pre.style.fontFamily = 'monospace';
+    
+    // Cria um elemento code
+    const code = document.createElement('code');
+    code.style.display = 'block';
+    code.style.whiteSpace = 'pre';
+    
+    // Adiciona o conteúdo ao elemento code
+    code.textContent = data;
+
+    // Adiciona o elemento code ao elemento pre
+    pre.appendChild(code);
+
+    // Adiciona o elemento pre ao div
+    document.getElementById('local-conf-content').appendChild(pre);
   });
 </script>
+
 
