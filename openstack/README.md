@@ -19,7 +19,7 @@ The ```local.conf``` file used in this prototype is available in the [project re
 
 <div id="local-conf-content"></div>
 <script>
-fetch('https://github.com/makleyston-ufc/ufcity-cloud-computing/blob/main/openstack/local.conf')
+fetch('https://raw.githubusercontent.com/makleyston-ufc/ufcity-cloud-computing/main/openstack/local.conf')
   .then(response => response.text())
   .then(data => {
     document.getElementById('local-conf-content').textContent = data;
