@@ -1,1 +1,5 @@
-ufcity-ai-models/datasets/
+ufcity-ai-models-samples/datasets/
+ufcity-ai-models-samples/datasets/
+ufcity-ai-models-samples/datasets/pollution-trend-analysis/uspollution_pollution_us_2000_2016.csv
+ufcity-ai-models-samples/datasets/urban-mobility-futurisct/futuristic_city_traffic.csv
+ufcity-ai-models-samples/datasets/urban-mobility/urban_mobility_dataset.csv

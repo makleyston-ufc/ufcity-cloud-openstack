@@ -1,1 +1,1 @@
-# ufcity-cloud-openstack
+# UFCity cloud computing
